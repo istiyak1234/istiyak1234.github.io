@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istiyak | IT Engineer & Full Stack Developer</title>
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0f172a;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--secondary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 90%);
+            padding-top: 0;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* About & Experience */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .exp-badge {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .exp-badge h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .skill-card ul {
+            list-style-position: inside;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .project-tags {
+            margin: 1rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for single-page core structure */
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Istiyak<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Istiyak</h1>
+            <h2>Engineer - IT & Developer</h2>
+            <p>Specializing in building robust Full Stack Web Applications and seamless Mobile Experiences.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div>
+                <p>As an IT Engineer with 2 years of professional experience, I bridge the gap between complex backend logic and sleek frontend presentation. I thrive on solving real-world puzzles through elegant code.</p>
+                <br>
+                <p>Whether it's architecting a scalable database, optimizing API responses, or crafting responsive user interfaces for web and mobile devices, I bring focus, structural thinking, and clean code practices to the table.</p>
+            </div>
+            <div class="exp-badge">
+                <h3>2+ Years</h3>
+                <p><strong>Professional Experience</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--text-color);">Delivering robust IT systems, specialized software architectures, and cross-platform mobile solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Full Stack Development</h3>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                    <li>React.js / Next.js</li>
+                    <li>Node.js / Express</li>
+                    <li>RESTful APIs & GraphQL</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Mobile App Development</h3>
+                <ul>
+                    <li>React Native / Flutter</li>
+                    <li>Cross-Platform Optimization</li>
+                    <li>State Management (Redux/Context)</li>
+                    <li>App Store Deployment pipeline</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Database & IT Ops</h3>
+                <ul>
+                    <li>MongoDB / PostgreSQL</li>
+                    <li>Git & GitHub Version Control</li>
+                    <li>Cloud Basics (AWS / Firebase)</li>
+                    <li>Linux Systems & Scripting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>E-Commerce Ecosystem</h3>
+                    <p>A comprehensive web marketplace with a synchronized hybrid mobile application for real-time tracking.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN Stack</span>
+                        <span class="tag">React Native</span>
+                        <span class="tag">Redux</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Task Management Dashboard</h3>
+                    <p>A real-time project management tool featuring intuitive Kanban boards, automated email reminders, and analytics.</p>
+                    <div class="project-tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Socket.io</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <form class="contact-form" id="portfolioContactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Istiyak. All rights reserved. Built with clean code.</p>
+    </footer>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        document.getElementById('portfolioContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic Form data retrieval
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Simple submission confirmation placeholder
+            alert(`Thank you for reaching out, ${name}! Your inquiry has been simulation-sent. I will respond to ${email} shortly.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
